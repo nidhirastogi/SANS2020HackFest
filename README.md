@@ -18,4 +18,5 @@ The automatic detection of software vulnerabilities is an important security res
 ### References
  1. [VulDeePecker: A Deep Learning-Based System for Vulnerability Detection](https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_03A-2_Li_paper.pdf)
 2. [Automated Vulnerability Detection in Source Code Using Deep Learning](https://arxiv.org/pdf/1807.04320.pdf)
-3. [Github - VDPython](https://github.com/johnb110/VDPython)
+3. [Github - VulDeePecker](https://github.com/CGCL-codes/VulDeePecker)
+4. [Github - VDPython](https://github.com/johnb110/VDPython)
