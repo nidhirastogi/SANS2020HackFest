@@ -1,0 +1,82 @@
+1 CVE-2010-1444/vlc_media_player_1.1.0_CVE-2010-1444_zipstream.c cfunc 449
+ZIP_FILENAME_LEN, NULL, 0, NULL, 0 )
+char *psz_fileName = calloc( ZIP_FILENAME_LEN, 1 );
+if( unzGetCurrentFileInfo( file, p_fileInfo, psz_fileName,
+vlc_array_append( p_filenames, strdup( psz_fileName ) );
+free( psz_fileName );
+0
+---------------------------------
+2 CVE-2010-1444/vlc_media_player_1.1.0_CVE-2010-1444_zipstream.c cppfunc 449
+char *psz_fileName = calloc( ZIP_FILENAME_LEN, 1 );
+ZIP_FILENAME_LEN, NULL, 0, NULL, 0 )
+if( unzGetCurrentFileInfo( file, p_fileInfo, psz_fileName,
+vlc_array_append( p_filenames, strdup( psz_fileName ) );
+free( psz_fileName );
+0
+---------------------------------
+3 CVE-2011-2896/cups_1.4.2_CVE-2011-2896_image-gif.c inputfunc 100
+fread(buf, 13, 1, fp);
+img->xsize = (buf[7] << 8) | buf[6];
+img->ysize = (buf[9] << 8) | buf[8];
+ncolors    = 2 << (buf[10] & 0x07);
+if (buf[10] & GIF_COLORMAP)
+if (gif_read_cmap(fp, ncolors, cmap, &gray))
+switch (getc(fp))
+fclose(fp);
+buf[0] = getc(fp);
+if (buf[0] == 0xf9)
+gif_get_block(fp, buf);
+fread(buf, 9, 1, fp);
+if (buf[8] & GIF_COLORMAP)
+ncolors = 2 << (buf[8] & 0x07);
+if (gif_read_cmap(fp, ncolors, cmap, &gray))
+img->xsize = (buf[5] << 8) | buf[4];
+img->ysize = (buf[7] << 8) | buf[6];
+if (img->xsize == 0 || img->ysize == 0)
+img->xsize, img->ysize);
+fprintf(stderr, "DEBUG: Bad GIF image dimensions: %dx%d\n",
+fclose(fp);
+i = gif_read_image(fp, img, cmap, buf[8] & GIF_INTERLACE);
+int interlace);
+i = gif_read_image(fp, img, cmap, buf[8] & GIF_INTERLACE);
+static int	gif_read_cmap(FILE *fp, int ncolors, gif_cmap_t cmap,
+fclose(fp);
+fclose(fp);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageWhiteToCMYK(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageWhiteToCMY(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageWhiteToBlack(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageWhiteToRGB(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageRGBAdjust(cmap[i], 1, saturation, hue);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageRGBToCMYK(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageRGBToCMY(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageRGBToBlack(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageRGBToWhite(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageRGBToRGB(cmap[i], cmap[i], 1);
+for (i = ncolors - 1; i >= 0; i --)
+cupsImageLut(cmap[i], bpp, lut);
+static int	gif_read_image(FILE *fp, cups_image_t *img, gif_cmap_t cmap,
+fclose(fp);
+static int	gif_get_block(FILE *fp, unsigned char *buffer);
+if (buf[0] & 1)
+transparent = buf[3];
+if (transparent >= 0)
+0
+---------------------------------
+4 CVE-2013-1706/Firefox_22.0b6_CVE_2013_1706_toolkit_components_maintenanceservice_workmonitor.cpp cppfunc 111
+WCHAR installDir[MAX_PATH + 1] = {L'\0'};
+if (!GetInstallationDir(argc, argv, installDir)) {
+GetInstallationDir(int argcTmp, LPWSTR *argvTmp, WCHAR aResultDir[MAX_PATH + 1])
+wcsncpy(aResultDir, argvTmp[2], MAX_PATH);
+WCHAR* backSlash = wcsrchr(aResultDir, L'\\');
+0
+---------------------------------
